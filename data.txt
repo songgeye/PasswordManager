@@ -2,50 +2,22 @@
 ユーザー名: fuga
 パスワード: piyo
 ---
-サービス名: hoge
-ユーザー名: fuga
-パスワード: piyo
+サービス名: GitHub
+ユーザー名: son_dev
+パスワード: gH#9kLmP2x
 ---
-サービス名: hoge
-ユーザー名: fuga
-パスワード: piyo
+サービス名: Gmail
+ユーザー名: sample@gmail.com
+パスワード: mG$7nQwR4v
 ---
-サービス名: hoge
-ユーザー名: fuga
-パスワード: piyo
+サービス名: AWS
+ユーザー名: son_aws
+パスワード: aW%5jBsT8y
 ---
-サービス名: hoge
-ユーザー名: fuga
-パスワード: piyo
+サービス名: X
+ユーザー名: son_tech
+パスワード: xX&3hCuN6z
 ---
-サービス名: hoge
-ユーザー名: fuga
-パスワード: piyo
----
-サービス名: hoge
-ユーザー名: fuga
-パスワード: piyo
----
-サービス名: hoge
-ユーザー名: fuga
-パスワード: piyo
----
-サービス名: hoge
-ユーザー名: fuga
-パスワード: piyo
----
-サービス名: hogr
-ユーザー名: huga
-パスワード: piyo
----
-サービス名: hoge
-ユーザー名: fuga
-パスワード: piyo
----
-サービス名: hoge
-ユーザー名: fuga
-パスワード: piyo
----
-サービス名: hoge
-ユーザー名: fuga
-パスワード: piyo
+サービス名: Notion
+ユーザー名: son.m
+パスワード: nO!1dEvK0p
