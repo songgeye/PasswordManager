@@ -12,6 +12,9 @@ FILE="$CURRENT_DIR/data.txt"
 # 暗号化されたファイル
 FILE_GPG="$CURRENT_DIR/data.txt.gpg"
 
+# Ctrl+C（SIGINT）を受け取ったら平文ファイルを削除して終了
+trap "rm -f '$FILE'; echo '中断しました。'; exit 1" SIGINT
+
 # 起動時に1度だけパスフレーズを入力
 read -s "passphrase?パスフレーズを入力してください。: "
 echo
@@ -62,20 +65,41 @@ do
     : > "$FILE"
   fi
 
-  read "service_name?サービス名を入力してください: "
-  read "user_Name?ユーザー名を入力してください: "
-  read -s "password?パスワードを入力してください: "
-  echo
-
   if [ -s "$FILE" ]; then
     echo "---" >> "$FILE"
   fi
 
-  {
-    echo "サービス名: $service_name"
-    echo "ユーザー名: $user_Name"
-    echo "パスワード: $password"
-  } >> "$FILE"
+  while true; do
+    read "service_name?サービス名を入力してください: "
+    if [ -z "$service_name" ]; then
+        echo "空入力です。もう一度入力してください。"
+    else
+        echo "サービス名: $service_name" >> "$FILE"
+        break
+    fi
+  done
+
+  while true; do
+    read "user_Name?ユーザー名を入力してください: "
+    if [ -z "$user_Name" ]; then
+        echo "空入力です。もう一度入力してください。"
+    else
+        echo "ユーザー名: $user_Name" >> "$FILE"
+        break
+    fi
+  done
+
+  while true; do
+    read -s "password?パスワードを入力してください: "
+    if [ -z "$password" ]; then
+        echo "空入力です。もう一度入力してください。"
+    else
+        echo "パスワード: $password" >> "$FILE"
+        break
+    fi
+  done
+
+  echo
 
   # 暗号化（成功したら平文削除）
   if gpg --batch --yes --pinentry-mode loopback \
@@ -97,10 +121,10 @@ do
       fi
 
       # 復号化してパイプでgrepに渡す
-      result=$(gpg --batch --yes --pinentry-mode loopback --passphrase "$passphrase" --decrypt "$FILE_GPG" 2>/dev/null | grep -F -A 2 "サービス名: $search")
+      result=$(gpg --batch --yes --pinentry-mode loopback --passphrase "$passphrase" --decrypt "$FILE_GPG" 2>/dev/null | grep -A 2 "サービス名: $search$")
 
       if [ -z "$result" ]; then
-        echo "登録されていません"
+        echo "サービスが見つかりません"
       else
         echo "$result"
       fi
