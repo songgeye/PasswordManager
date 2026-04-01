@@ -121,7 +121,8 @@ do
       fi
 
       # 復号化してパイプでgrepに渡す
-      result=$(gpg --batch --yes --pinentry-mode loopback --passphrase "$passphrase" --decrypt "$FILE_GPG" 2>/dev/null | grep -A 2 "サービス名: $search$")
+      result=$(gpg --batch --yes --pinentry-mode loopback --passphrase 
+      "$passphrase" --decrypt "$FILE_GPG" 2>/dev/null | grep -A 2 "サービス名: $search$")
 
       if [ -z "$result" ]; then
         echo "サービスが見つかりません"
