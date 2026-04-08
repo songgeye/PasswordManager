@@ -77,7 +77,7 @@ chmod +x password_manager.sh
 ```
 次の選択肢から入力してください(Add Password/Get Password/Exit): Add Password
 サービス名を入力してください: GitHub
-ユーザー名を入力してください: kengo_dev
+ユーザー名を入力してください: son_dev
 パスワードを入力してください:
 パスワードの追加は成功しました。
 ```
@@ -96,7 +96,7 @@ chmod +x password_manager.sh
 次の選択肢から入力してください(Add Password/Get Password/Exit): Get Password
 サービス名を入力してください: GitHub
 サービス名: GitHub
-ユーザー名: kengo_dev
+ユーザー名: son_dev
 パスワード: gH#9kLmP2x
 ```
  
