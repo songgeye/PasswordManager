@@ -130,7 +130,7 @@ Thank you!
  
 ---
  
-## 📁 ファイル構成
+## ファイル構成
  
 ```
 PasswordManager/
